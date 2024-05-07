@@ -1,0 +1,103 @@
+    /*Estilos de -index.html-
+
+Estilos generales*/
+
+p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(99, 99, 99);
+}
+
+body {
+    background-color: rgb(245, 251, 255);
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+header {
+    background-image: url('logo.jpg'); 
+    background-size: cover; 
+    padding: 50px;
+    text-align: center; 
+    position: relative; 
+}
+
+header h1 {
+    margin: 0; 
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(206, 237, 255);
+    text-shadow: 
+        -1px -1px 0 rgb(13, 163, 228),  
+         1px -1px 0 rgb(28, 45, 53),
+        -1px  1px 0 rgb(18, 27, 31),
+         1px  1px 0 rgb(8, 9, 10);
+}
+
+header nav {
+    margin-top: 70px;
+    padding: 10px; 
+    border-radius: 10px; 
+    background-color: rgb(206, 237, 255, 0.5);
+}
+
+nav ul {
+    list-style-type: none; 
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px; 
+    background-color: rgb(206, 237, 255); 
+    padding: 5px 10px; 
+    border-radius: 5px;
+}
+
+nav ul li a {
+    color: rgb(67, 102, 122);
+    text-decoration: none; 
+}
+
+h2 {
+    color: rgb(67, 102, 122); 
+}
+
+h3 {
+    color: rgb(67, 102, 122);
+    font-style: italic;
+    text-align: center;
+}
+
+h4 {
+    color: rgb(118, 173, 196);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    text-shadow:1px  1px 0 rgb(0, 107, 153);
+    padding: 10px; 
+    background-color: rgba(183, 219, 235, 0.5); 
+    border-radius: 2px; 
+}
+
+/*Estilos de la galeria de inicio*/
+
+#inicio img {
+    width: 300px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Estilos galeria empleados*/
+
+.empimg {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.empimg img {
+    height: auto;
+    margin-bottom: 0px; 
+    width: 180px;
+    height:180px;
+}
