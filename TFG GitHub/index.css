@@ -10,6 +10,8 @@ p {
 body {
     background-color: rgb(245, 251, 255);
     font-family: Arial, Helvetica, sans-serif; 
+    margin: 0;
+    padding: 0; 
 }
 
 header {
@@ -43,6 +45,7 @@ header nav {
 
 nav ul {
     list-style-type: none; 
+    padding: 0; 
 }
 
 header nav ul li {
@@ -78,7 +81,58 @@ h4 {
     border-radius: 2px; 
 }
 
+
+main {
+    padding: 20px;
+    margin-right: 170px;
+    margin-bottom: 100px;
+}
+
+/*Estilo del footer*/
+
+footer {
+    background-color: rgb(67, 102, 122); 
+    color: #fff; 
+    position: fixed; 
+    width: 100%; 
+    bottom: 0;
+    text-align: center; 
+    font-size: 14px; 
+    line-height: 1px; 
+}
+
+footer nav {
+    margin-top: 50px;
+}
+
+footer nav ul {
+    margin: 0;
+    padding: 0; 
+    list-style: none;
+}
+
+footer nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline;
+}
+
 /*Estilos de la galeria de inicio*/
+
+#inicio .letrabonita {
+    font-weight: bold;
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: rgb(99, 99, 99);
+}
 
 #inicio img {
     width: 300px;
@@ -87,17 +141,133 @@ h4 {
     align-items: center;
 }
 
-/*Estilos galeria empleados*/
+/*Estilo aside*/
 
-.empimg {
+aside {
+    width: 170px; 
+    position: fixed; 
+    top: 268px; 
+    bottom: 0; 
+    right: 0; 
+    background-color: #f2faff;
+    padding: 10px; 
+    overflow-y: auto; 
+    z-index: 1; 
+}
+
+.gallery {
+    flex-direction: column; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.gallery img {
+    margin-bottom: 0px;
+    width: 80%;
+    height: auto;
+}
+
+/* Estilos para la sección "Sobre Nosotros" */
+
+.sobre-nosotros {
+    flex: 1;
+    padding-right: 20px; 
+}
+
+.sobre-nosotros img {
+    width: 140px; 
+    height: 100px; 
+    margin-left: 20px; 
+}
+
+#sobre-nosotros .letrabonita {
+    font-weight: bold;
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: rgb(99, 99, 99);
+}
+
+.ubicacioncont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    flex: 1;
+}
+
+#mapa {
+    padding: 0px;
+    border: 0px outset rgb(118, 173, 196);
+    margin-top: 0px;
+}
+
+.ubicacion {
+    margin-left: 20px; 
+}
+
+.direccion {
+    text-align: center;
+    color: rgb(67, 102, 122);
+    font-size: 16px;
+    font-style: oblique;
+}
+
+/*Estilo galeria de empleados*/
+
+#equipo .letrabonita {
+    font-weight: bold;
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: rgb(99, 99, 99);
+}
+
+.empleado-gallery {
+    display: grid;
     display: flex;
     justify-content: center; 
     gap: 20px; 
 }
 
-.empimg img {
+.empleado-gallery img {
     height: auto;
     margin-bottom: 0px; 
     width: 180px;
     height:180px;
+}
+
+/* Estilos para la línea horizontal de separación entre secciones*/
+
+.section-divider {
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 40px; 
+}
+
+
+/* Estilos para el botón de WhatsApp */
+
+#contwhats {
+    width: fit-content; 
+    margin: 0 auto;
+    background-color: rgba(62, 143, 190, 0.2); 
+    padding: 20px; 
+    border-radius: 10px; 
+    text-align: center; 
+}
+
+#whatsbtn {
+    background-color: rgb(62, 143, 190); 
+    color: #fff;
+    border: none;
+    padding: 15px 20px; 
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#whatsbtn:hover {
+    background-color: #128C7E;
 }
