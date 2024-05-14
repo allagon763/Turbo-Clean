@@ -146,7 +146,7 @@ footer nav ul li a:hover {
 aside {
     width: 170px; 
     position: fixed; 
-    top: 268px; 
+    top: 285px; 
     bottom: 0; 
     right: 0; 
     background-color: #f2faff;
@@ -237,13 +237,19 @@ aside {
     height:180px;
 }
 
+.nombre {
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(99, 99, 99);
+    margin-top: 10px;
+}
+
 /* Estilos para la línea horizontal de separación entre secciones*/
 
 .section-divider {
     border-bottom: 1px solid #ccc; 
     margin-bottom: 40px; 
 }
-
 
 /* Estilos para el botón de WhatsApp */
 
@@ -272,23 +278,6 @@ aside {
     background-color: #128C7E;
 }
 
- /*Estilo de -servicios.html-*/
-
- .servicio {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.servicio p {
-    text-align: center;
-}
-
-.servicio img {
-    width: 200px;
-    margin-right: 20px;
-}
-
 /*Estilo del contenedor OFERTA*/
 
 .contoferta {
@@ -309,6 +298,23 @@ aside {
     font-weight: bold;
     font-style: italic;
     color: #ff5733;
+}
+    
+    /*Estilo de -servicios.html-*/
+
+.servicio {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.servicio p {
+    text-align: center;
+}
+
+.servicio img {
+    width: 200px;
+    margin-right: 20px;
 }
 
 /*Estilo de los precios*/
@@ -353,3 +359,15 @@ aside {
     max-width: 100%;
     height: auto;
 }
+
+    /*Estilo -terms.html*/
+
+    h2 {
+        color: rgb(176, 202, 218);
+        text-shadow: 
+            -1px -1px 0 rgb(13, 163, 228),  
+             1px -1px 0 rgb(28, 45, 53),
+            -1px  1px 0 rgb(18, 27, 31),
+             1px  1px 0 rgb(8, 9, 10);
+    }
+    
