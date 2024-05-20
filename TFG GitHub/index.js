@@ -23,6 +23,7 @@ function ocultarNombre(img) {
     nombreEmpleado.style.display = "none"; // Así se oculta el nombre del empleado
 }
 
+
     //CAMBIO COLOR OFERTAS
 
 //De esta manera cambiamos el color del texto al colocar el cursor encima
@@ -33,4 +34,18 @@ function cambiocolor() {
     const texto = document.querySelector('.ofertatext');
     texto.style.color = colors[currentColorIndex];
     currentColorIndex = (currentColorIndex + 1) % colors.length; // De esta manera avanza al siguiente color circularmente (basicamente, si no colocamos esto no cambian los colores)
+}
+
+
+    //COOKIES
+
+//Funciones de las COOKIES
+function aceptarConsentimiento() {
+    document.cookie = "consentimiento=aceptado; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
+    document.getElementById("mensaje-consentimiento").style.display = "none";
+}
+
+function denegarConsentimiento() {
+    // Puede establecer una cookie diferente o simplemente no establecer ninguna cookie, yo no he establecido nada porque tengo que mirarlo aún
+    document.getElementById("mensaje-consentimiento").style.display = "none";
 }
