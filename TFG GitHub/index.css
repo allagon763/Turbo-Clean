@@ -562,3 +562,46 @@ Estilos para el formulario de reservas */
 .return-button:hover {
     background-color: rgb(69, 100, 122); 
 }
+
+    /*Estilo de -contacto.html-*/
+
+/*Contenedores de las redes sociales*/
+
+.social-container {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon {
+    margin: 0 50px;
+}
+
+.social-icon img {
+    width: 50px; 
+    height: 50px;
+}
+
+/*Para el horario*/
+
+.special-horario {
+    font-style: oblique;
+    color: rgb(206, 237, 255);
+    text-shadow: 
+        -1px -1px 0 rgb(13, 163, 228),  
+         1px -1px 0 rgb(28, 45, 53),
+        -1px  1px 0 rgb(18, 27, 31),
+         1px  1px 0 rgb(8, 9, 10);
+}
+
+    /*Estilo -terms.html*/
+
+h2 {
+    color: rgb(176, 202, 218);
+    text-shadow: 
+        -1px -1px 0 rgb(13, 163, 228),  
+         1px -1px 0 rgb(28, 45, 53),
+        -1px  1px 0 rgb(18, 27, 31),
+         1px  1px 0 rgb(8, 9, 10);
+}
+
+
