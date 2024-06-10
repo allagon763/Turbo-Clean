@@ -6,27 +6,97 @@
     <title>Turbo Clean - Lavadero de Coches</title>
     <link rel="stylesheet" href="index.css"> 
     <link rel="icon" href="logotipo.jpg" type="image/png">
+    <style>
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #f5fbff; /* Color de fondo */
+            z-index: -1;
+        }
+        body {
+            transition: background 1s ease;
+            overflow: auto;
+        }
+        #contenido {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
-<header>
+<div id="particles-js"></div>
+<div id="mensaje-consentimiento" style="display:none;">
+        Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al hacer clic en Aceptar, aceptas el uso de cookies.
+        <button onclick="aceptarConsentimiento()">Aceptar</button>
+        <button onclick="denegarConsentimiento()">Denegar</button>
+    </div>
 
+    <script>
+        // Función para establecer una cookie
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Función para obtener una cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Función para mostrar el mensaje de consentimiento
+        function mostrarMensajeConsentimiento() {
+            const consentimiento = getCookie('consentimiento');
+            if (consentimiento !== 'aceptado') {
+                document.getElementById('mensaje-consentimiento').style.display = 'block';
+            }
+        }
+
+        // Función para aceptar el consentimiento
+        function aceptarConsentimiento() {
+            setCookie('consentimiento', 'aceptado', 365);
+            document.getElementById('mensaje-consentimiento').style.display = 'none';
+        }
+
+        // Función para denegar el consentimiento
+        function denegarConsentimiento() {
+            setCookie('consentimiento', 'denegado', 365);
+            document.getElementById('mensaje-consentimiento').style.display = 'none';
+        }
+
+        // Para mostrar el mensaje de consentimiento al cargar la página
+        window.onload = mostrarMensajeConsentimiento;
+    </script>
+
+
+<header>
     <h1>INICIO</h1>
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="cliente.html">Registro</a></li>
             <li><a href="login.html">Inicio de Sesion</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="reservas.php">Reservas</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <div style="display:flex">
-        <section id="inicio" class="two-columns section-divider" style="flex: 1;">
+    <div id="inicio" style="display:flex">
+        <section  class="two-columns section-divider" style="flex: 1;">
             <div>
                 <h4>FIABILIDAD GARANTIZADA</h4>
                 <p>Somos el lavadero de coches líder en limpieza y cuidado vehicular.</p>
@@ -35,7 +105,7 @@
                 <img src="INICIO/lavadero.jpg" alt="Lavadero de Coches">
             </div>
         </section>
-        <section id="inicio" class="two-columns section-divider" style="flex:1;">
+        <section  class="two-columns section-divider" style="flex:1;">
             <div>
                 <h4>DISPONIBILIDAD AL 100%</h4>
                 <p>Tenemos <span class="letrabonita">total disponibilidad</span> siempre que quieras contactar con nosotros.</p>
@@ -49,7 +119,7 @@
                 <script src="index.js"></script>
             </div>
         </section>
-        <section id="inicio" class="two-columns section-divider" style="flex:1;">
+        <section class="two-columns section-divider" style="flex:1;">
             <h4>ACTUALIZADOS</h4>
                 <p>Mantenemos nuestros servicios siempre actualizados a innovar; ¡cada semana <span class="special-act">OFERTAS</span> nuevas!</p>
                 <br>
@@ -59,7 +129,7 @@
                     <p class="ofertatext">¡DESCUENTOS DE HASTA UN 50%!</p>
                 </div>
         </section>
-        <section id="inicio" class="two-columns section-divider" style="flex:1;">
+        <section class="two-columns section-divider" style="flex:1;">
             <div>
                 <h4>SIEMPRE AL DETALLE</h4>
                 <p>Somos un <span class="letrabonita">lavadero al detalle</span>, si desea tener un acabado que
@@ -142,8 +212,114 @@
     </nav>
     <p style="color: white;">&copy; 2024 Turbo Clean - Lavadero de Coches</p>
 </footer>
-
 <script src="index.js"></script>
-
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#475469" // Color de las partículas
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
 </body>
 </html>

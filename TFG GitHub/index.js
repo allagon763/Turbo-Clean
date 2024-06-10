@@ -12,7 +12,7 @@ whatsbtn.addEventListener('click', function() {
 
     //NOMBRE DE LOS EMPLEADOS
 
-//Mostrar y ocultar nombre de los empleados
+//Para mostrar y ocultar nombre de los empleados
 function mostrarNombre(img) {
     var nombreEmpleado = img.nextElementSibling; // De esta manera obtenemos el div con el nombre del empleado, ya que se selecciona el elemento hermano
     nombreEmpleado.style.display="block"; // Así se muestra el nombre del empleado
@@ -37,15 +37,6 @@ function cambiocolor() {
 }
 
 
-    //COOKIES
 
-//Funciones de las COOKIES
-function aceptarConsentimiento() {
-    document.cookie = "consentimiento=aceptado; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
-    document.getElementById("mensaje-consentimiento").style.display = "none";
-}
+    
 
-function denegarConsentimiento() {
-    // Puede establecer una cookie diferente o simplemente no establecer ninguna cookie, yo no he establecido nada porque tengo que mirarlo aún
-    document.getElementById("mensaje-consentimiento").style.display = "none";
-}

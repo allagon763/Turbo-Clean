@@ -1,4 +1,18 @@
-    /*Estilos de -index.html-
+    /*Estilos para la barra de scroll*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+    
+::-webkit-scrollbar-track {
+    background: rgb(245, 251, 255);
+}
+    
+::-webkit-scrollbar-thumb {
+    background: rgb(223, 243, 255);
+}
+
+    /*Estilos de -index-
 
 Estilos generales*/
 
@@ -11,7 +25,7 @@ body {
     background-color: rgb(245, 251, 255);
     font-family: Arial, Helvetica, sans-serif; 
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
 header {
@@ -49,16 +63,13 @@ nav ul {
 }
 
 header nav ul li {
-    display: inline;
+    display: inline; 
     margin-right: 20px; 
     background-color: rgb(206, 237, 255); 
-    padding: 5px 10px; 
+    padding: 10px 15px; /* Aumenta el tamaño del padding */
     border-radius: 5px;
-}
-
-nav ul li a {
-    color: rgb(67, 102, 122);
-    text-decoration: none; 
+    position: relative; /* Necesario para el efecto hover */
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.5s; /* Añade una transición suave */
 }
 
 h2 {
@@ -87,6 +98,52 @@ main {
     margin-right: 170px;
     margin-bottom: 100px;
 }
+
+
+    /*Estilo para que se ilumine el nav ul li a del header*/
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(67, 102, 122);
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+nav ul li a:hover {
+    background: rgb(206, 237, 255);
+    color: rgb(0, 107, 153);
+    box-shadow: 0 0 5px rgb(206, 237, 255),
+                0 0 25px rgb(206, 237, 255),
+                0 0 50px rgb(206, 237, 255),
+                0 0 200px rgb(206, 237, 255);
+}
+
+nav ul li a:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: var(--ligth-color);
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    transition: 0.5s;
+}
+
+nav ul li a:hover:before {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background: var(--ligth-color) !important;
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 0 !important;
+}
+
+
 
 /*Estilo del footer*/
 
@@ -360,6 +417,39 @@ aside {
     height: auto;
 }
 
+/*Estilo para el carrito.js*/
+.fixed-cart {
+    position: fixed;
+    top: 50px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    width: 300px; /* Ancho del carrito */
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Asegura que el carrito esté por encima del contenido */
+}
+
+.fixed-cart h3 {
+    margin-top: 0;
+}
+
+.fixed-cart ul {
+    margin-top: 0;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.fixed-cart p {
+    margin-bottom: 0;
+}
+
+.fixed-cart span {
+    font-weight: bold;
+}
+
+
     /*Estilo -reserva.html
 
 Estilos para el formulario de reservas */
@@ -429,8 +519,89 @@ Estilos para el formulario de reservas */
     display: block;
 }
 
+/* Estilos para el historial de reservas */
+h1 {
+    font-size: 24px;
+    color: rgb(58, 87, 106);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-/* Estilos para el formulario en cliente.html */
+.reserva h5 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px; /* Tamaño de la fuente */
+    color: rgb(65, 99, 122); /* Cambiar el color del texto */
+    font-weight: bold; /* Añadir negrita */
+    font-family: 'Arial', sans-serif; /* Cambiar la fuente */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+}
+
+#historialcont {
+    margin-top: 20px;
+}
+
+.reserva {
+    border: 1px solid #cef0ff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    background-color: #e6faff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.reserva h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #34495e;
+}
+
+.cancelar-btn {
+    background-color: #b33b2e;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cancelar-btn:hover {
+    background-color: #691f17;
+}
+
+#mensaje-exito {
+    background-color: #9affc4;
+    border-color: #b7ffd5;
+    color: #8a8a8a;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-cancel {
+    background-color: #ede6ff; /* Fondo rojo claro */
+    padding: 15px; /* Espacio interno */
+    border-left: 5px solid #6f36f4; /* Borde izquierdo rojo */
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.info-cancel p {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #292929;
+}
+
+
+    /* Estilos para el formulario en cliente.html */
 
 #registro-container {
     display: flex;
@@ -557,6 +728,7 @@ Estilos para el formulario de reservas */
     font-size: 16px;
 }
 
+
 /* Cambio de color al pasar el cursor */
 
 .return-button:hover {
@@ -604,4 +776,155 @@ h2 {
          1px  1px 0 rgb(8, 9, 10);
 }
 
+ 
+/* Media Queries para hacer el sitio responsive */
 
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+        top: 10px; /* Mantener el h1 en la parte superior */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header nav {
+        margin-top: 90px; /* Ajustar el margen superior para evitar solapamiento */
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        margin-right: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .sobre-nosotros {
+        padding-right: 0;
+    }
+
+    .ubicacioncont {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .empleado-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    #reservas input[type="text"],
+    #reservas input[type="email"],
+    #reservas input[type="date"],
+    #reservas input[type="time"],
+    #reservas select[name="nombre"] {
+        width: 100%;
+    }
+
+    #registro input[type="text"],
+    #registro input[type="email"],
+    #registro input[type="password"],
+    #registro input[type="login"],
+    #registro input[type="submit"] {
+        width: 100%;
+    }
+
+    .social-icon {
+        margin: 10px 0;
+    }
+
+    #inicio {
+        flex-direction: column; /* Cambiar la dirección de la flexbox para apilar las secciones verticalmente */
+    }
+
+    #inicio div {
+        width: auto;
+    }
+}
+
+
+/*??*/
+@media (max-width: 1024px) {
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+        top: 10px; /* Mantener el h1 en la parte superior */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header nav {
+        margin-top: 90px; /* Ajustar el margen superior para evitar solapamiento */
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        margin-right: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .sobre-nosotros {
+        padding-right: 0;
+    }
+
+    .ubicacioncont {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .empleado-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    #reservas input[type="text"],
+    #reservas input[type="email"],
+    #reservas input[type="date"],
+    #reservas input[type="time"],
+    #reservas select[name="nombre"] {
+        width: 100%;
+    }
+
+    #registro input[type="text"],
+    #registro input[type="email"],
+    #registro input[type="password"],
+    #registro input[type="login"],
+    #registro input[type="submit"] {
+        width: 100%;
+    }
+
+    .social-icon {
+        margin: 10px 0;
+    }
+
+    #inicio {
+        flex-direction: column; /* Cambiar la dirección de la flexbox para apilar las secciones verticalmente */
+    }
+
+    #inicio div {
+        width: auto;
+    }
+}

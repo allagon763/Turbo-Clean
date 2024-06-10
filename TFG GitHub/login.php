@@ -12,7 +12,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtiene los datos del formulario
+    // Obtenemos los datos del formulario
     $login = $_POST["login"];
     $password = $_POST["password"];
     // Con trim() se eliminan los espacios, en este caso del nombre de usuario y de la contraseña
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row["password"];
 
         // Verifica si la contraseña ingresada coincide con el hash almacenado en la base de datos
-        if (hash_equals($hashed_password, crypt($password, $hashed_password))) {
+        if (password_verify($password, $hashed_password)) {
             // Si la contraseña es correcta, inicia sesión y redirige al usuario a la página de reserva
             $_SESSION["user_id"] = $row["user_id"];
             header("Location: reservas.html");
@@ -56,4 +56,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 </body>
 </html>
-
