@@ -12,7 +12,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtenemos los datos del formulario
+    // Obtiene los datos del formulario
     $login = $_POST["login"];
     $password = $_POST["password"];
     // Con trim() se eliminan los espacios, en este caso del nombre de usuario y de la contraseña

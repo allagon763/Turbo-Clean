@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turbo Clean - Lavadero de Coches</title>
-    <link rel="stylesheet" href="index.css"> 
-    <link rel="icon" href="logotipo.jpg" type="image/png">
-</head>
-<body>
+
 <?php
 session_start();
 $conex = mysqli_connect("localhost", "root", "", "TFG");
@@ -33,18 +24,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    // así verifica si la contraseña cumple con los requisitos
-    if (!validatePassword($password)) {
-        echo 'La contraseña no cumple con los requisitos.';
+    // Verifica si el usuario ya está registrado
+    $sql = "SELECT * FROM users WHERE login = ?";
+    $stmt = mysqli_prepare($conex, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $login);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        $response = ["error" => "El nombre de usuario ya está registrado."];
+        echo json_encode($response);
         exit();
     }
 
-    // así verifica si el email cumple con los requisitos
-    if (!validateEmail($email)) {
-        echo 'El correo electrónico no es válido.';
-        exit();
-    }
-
+    //Hash de la contraseña (la cifra para la privacidad del usuario)
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (nombre, login, password, email) VALUES (?, ?, ?, ?)";
@@ -52,28 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "ssss", $nombre, $login, $passwordHash, $email);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo 'Registro exitoso';
+        $response = ["success" => "Registro exitoso"];
+        echo json_encode($response);
     } else {
-        echo 'Error al registrar el usuario.';
+        $response = ["error" => "Error al registrar el usuario."];
+        echo json_encode($response);
     }
 
     mysqli_close($conex);
 }
-
-function validatePassword($password) {
-    $minLength = 8;
-    $hasUpperCase = preg_match('/[A-Z]/', $password);
-    $hasLowerCase = preg_match('/[a-z]/', $password);
-    $hasNumber = preg_match('/\d/', $password);
-    $hasSpecialChar = preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password);
-
-    return strlen($password) >= $minLength && $hasUpperCase && $hasLowerCase && $hasNumber && $hasSpecialChar;
-}
-
-function validateEmail($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-}
-?>
-
-</body>
-</html>

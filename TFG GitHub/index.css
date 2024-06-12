@@ -456,17 +456,17 @@ Estilos para el formulario de reservas */
 
 #reservas {
     width: 90%;
+    margin: 0 auto;
     padding: 20px; 
     border: 1px solid #cacaca; 
     border-radius: 5px; 
     background-color: #e3f4ff; 
     text-align: center;
-    flex-grow: 1; /* Cambio */
-    max-width: 1200px; /* Reducido desde 600px */
-    max-height: 400px; /* Añadido */
-    overflow-y: auto; /* Añadido */
+    flex-grow: 1;
+    max-width: 1200px;
+    max-height: 400px;
+    overflow-y: auto;
 }
-
 
 #reservas-container {
     display: flex;
